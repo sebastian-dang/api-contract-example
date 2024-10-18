@@ -117,7 +117,7 @@ paths:
                         example: eyJzaW5jZUlkIjoxMjYzMn0
                       nextLink:
                         type: string
-                        example: https://api.reclients.com/v1/events?updatedAfter=1980-01-01T00%3A00%3A00Z&next=eyJzaW5jZUlkIjoxMjYzMn0
+                        example: https://api.followupboss.com/v1/events?updatedAfter=1980-01-01T00%3A00%3A00Z&next=eyJzaW5jZUlkIjoxMjYzMn0
                   events:
                     type: array
                     items:
