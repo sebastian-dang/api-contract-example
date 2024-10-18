@@ -1,0 +1,13 @@
+openapi: 3.0.0
+info:
+  title: Follow Up Boss API
+  version: 1.0.0
+  description: API in Follow Up Boss
+servers:
+  - url: https://api.followupboss.com
+paths:
+  # events.yml
+  /v1/events:
+    $ref: './contracts/events.yml#/paths/~1v1~1events'
+  /v1/events/{id}:
+    $ref: './contracts/events.yml#/paths/~1v1~1events~1{id}'
