@@ -1,10 +1,10 @@
 openapi: 3.0.0
 info:
-  title: Follow Up Boss API
+  title: Example API
   version: 1.0.0
-  description: API in Follow Up Boss
+  description: Example API
 servers:
-  - url: https://api.followupboss.com
+  - url: https://api.example.com
 paths:
   /internal-endpoint:
     post:
