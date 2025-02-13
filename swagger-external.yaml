@@ -24,18 +24,13 @@ paths:
         - name: next
           in: query
           required: false
-          description: >-
-            To get the next page of results, set this to the value returned in
-            _metadata.next, or use the URL from _metadata.nextLink directly.
+          description: To get the next page of results, set this to the value returned in _metadata.next, or use the URL from _metadata.nextLink directly.
           schema:
             type: string
         - name: offset
           in: query
           required: false
-          description: >-
-            Specifies the number of rows to skip, before starting to return
-            results. (For more efficient paging, please use the "next" parameter
-            instead.)
+          description: Specifies the number of rows to skip, before starting to return results. (For more efficient paging, please use the "next" parameter instead.)
           schema:
             type: integer
             format: int32
@@ -71,17 +66,13 @@ paths:
         - name: hasProperty
           in: query
           required: false
-          description: >-
-            Filters based on whether a property is associated with an event or
-            not.
+          description: Filters based on whether a property is associated with an event or not.
           schema:
             type: boolean
         - name: propertyAddress
           in: query
           required: false
-          description: >-
-            Searches property addresses for a given value, including partial
-            matches.
+          description: Searches property addresses for a given value, including partial matches.
           schema:
             type: string
       responses:
@@ -115,8 +106,7 @@ paths:
                         example: eyJzaW5jZUlkIjoxMjYzMn0
                       nextLink:
                         type: string
-                        example: >-
-                          https://api.followupboss.com/v1/events?updatedAfter=1980-01-01T00%3A00%3A00Z&next=eyJzaW5jZUlkIjoxMjYzMn0
+                        example: https://api.followupboss.com/v1/events?updatedAfter=1980-01-01T00%3A00%3A00Z&next=eyJzaW5jZUlkIjoxMjYzMn0
                   events:
                     type: array
                     items:
@@ -181,8 +171,7 @@ paths:
                               example: '0'
                             url:
                               type: string
-                              example: >-
-                                http://www.zillow.com/homedetails/6825-Mulholland-Dr-Los-Angeles-CA-90068/2109065822_zpid/
+                              example: http://www.zillow.com/homedetails/6825-Mulholland-Dr-Los-Angeles-CA-90068/2109065822_zpid/
                             type:
                               type: string
                               example: Residential
@@ -257,9 +246,7 @@ paths:
                       example: Property Inquiry
                     neighborhood:
                       type: string
-                      description: >-
-                        The neighborhood or area in which a person is searching
-                        for a property.
+                      description: The neighborhood or area in which a person is searching for a property.
                       example: Cahuenga Pass
                     city:
                       type: string
@@ -290,30 +277,22 @@ paths:
                     minBedrooms:
                       type: integer
                       format: int32
-                      description: >-
-                        The minimum number of bedrooms that a person was
-                        searching for.
+                      description: The minimum number of bedrooms that a person was searching for.
                       example: 1
                     maxBedrooms:
                       type: integer
                       format: int32
-                      description: >-
-                        The maximum number of bedrooms that a person was
-                        searching for.
+                      description: The maximum number of bedrooms that a person was searching for.
                       example: 10
                     minBathrooms:
                       type: number
                       format: float
-                      description: >-
-                        The minimum number of bathrooms that a person was
-                        searching for.
+                      description: The minimum number of bathrooms that a person was searching for.
                       example: 1
                     maxBathrooms:
                       type: number
                       format: float
-                      description: >-
-                        The maximum number of bathrooms that a person was
-                        searching for.
+                      description: The maximum number of bathrooms that a person was searching for.
                       example: 4
       responses:
         '200':
@@ -484,11 +463,7 @@ paths:
                         example: ''
                       topics:
                         type: string
-                        example: >-
-                          Management, Real Estate, Foreclosures, Email
-                          Marketing, Marketing, Internet Marketing, Social
-                          Media, Entrepreneurship, Advertising, Business,
-                          Mortgages, Crm, Movies, Mailchimp
+                        example: Management, Real Estate, Foreclosures, Email Marketing, Marketing, Internet Marketing, Social Media, Entrepreneurship, Advertising, Business, Mortgages, Crm, Movies, Mailchimp
                       facebook:
                         type: string
                         example: https://www.facebook.com/followupboss/
@@ -661,3 +636,4 @@ paths:
           description: Event not found
         '500':
           description: Internal server error
+components: {}
