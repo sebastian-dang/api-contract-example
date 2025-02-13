@@ -1,5 +1,5 @@
 apis:
   internal@latest:
-    root: ./swagger.yaml
+    root: ./swagger.yml
   external@latest:
-    root: ./swagger.yaml
+    root: ./swagger.yml

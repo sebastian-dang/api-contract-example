@@ -28,10 +28,13 @@ jobs:
         run: |
           npm install -g @redocly/cli
 
-      - name: Bundle the swagger.yml
+      - name: Bundle internal
+        run: |
+          redocly bundle internal@latest --output swagger-internal.yaml
+
+      - name: Bundle external
         run: |
           redocly bundle external@latest --output swagger-external.yaml
-          redocly bundle internal@latest --output swagger-internal.yaml
 
       - name: Create Pull Request
         id: create_pr
