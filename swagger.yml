@@ -6,45 +6,6 @@ info:
 servers:
   - url: https://api.followupboss.com
 paths:
-  /public-endpoint:
-    get:
-      summary: Retrieve public data
-      operationId: getPublicData
-      responses:
-        '200':
-          description: Successful response with public data
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    description: Public identifier
-                  name:
-                    type: string
-                    description: Name of the item
-                  internalNote:
-                    type: string
-                    description: An internal note that should be removed
-                    x-internal: true
-                  details:
-                    type: object
-                    properties:
-                      description:
-                        type: string
-                        description: Detailed description of the item
-                      secretDetail:
-                        type: string
-                        description: Internal secret detail, not public
-                        x-internal: true
-              example:
-                id: 1
-                name: Public Item
-                internalNote: This note should be filtered out
-                details:
-                  description: This is a public item description.
-                  secretDetail: This secret should be removed
   /internal-endpoint:
     post:
       summary: Create sensitive data (internal)
@@ -150,3 +111,42 @@ paths:
                 nestedObject:
                   nestedPublic: Public nested value
                   nestedInternal: This nested internal value should be removed
+  /public-endpoint:
+    get:
+      summary: Retrieve public data
+      operationId: getPublicData
+      responses:
+        '200':
+          description: Successful response with public data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Public identifier
+                  name:
+                    type: string
+                    description: Name of the item
+                  internalNote:
+                    type: string
+                    description: An internal note that should be removed
+                    x-internal: true
+                  details:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        description: Detailed description of the item
+                      secretDetail:
+                        type: string
+                        description: Internal secret detail, not public
+                        x-internal: true
+              example:
+                id: 1
+                name: Public Item
+                internalNote: This note should be filtered out
+                details:
+                  description: This is a public item description.
+                  secretDetail: This secret should be removed
