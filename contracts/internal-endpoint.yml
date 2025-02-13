@@ -7,10 +7,10 @@ servers:
   - url: https://api.example.com
 
 paths:
-  internal-endpoint:
+  /internal-endpoint:
     post:
-      summary: "Create sensitive data (internal)"
       x-internal: true
+      summary: "Create sensitive data (internal)"
       operationId: createSensitiveData
       requestBody:
         required: true
@@ -20,9 +20,9 @@ paths:
               type: object
               properties:
                 sensitiveField:
+                  x-internal: true
                   type: string
                   description: "Sensitive field; internal use only"
-                  x-internal: true
                 publicField:
                   type: string
                   description: "Field visible to the public"
@@ -47,8 +47,8 @@ paths:
                       publicField:
                         type: string
                       sensitiveField:
-                        type: string
                         x-internal: true
+                        type: string
               example:
                 status: "created"
                 data:

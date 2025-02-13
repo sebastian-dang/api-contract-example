@@ -7,7 +7,7 @@ servers:
   - url: https://api.example.com
 
 paths:
-  public-endpoint:
+  /public-endpoint:
     get:
       summary: "Retrieve public data"
       operationId: getPublicData
@@ -26,9 +26,9 @@ paths:
                     type: string
                     description: "Name of the item"
                   internalNote:
+                    x-internal: true
                     type: string
                     description: "An internal note that should be removed"
-                    x-internal: true
                   details:
                     type: object
                     properties:
@@ -36,9 +36,9 @@ paths:
                         type: string
                         description: "Detailed description of the item"
                       secretDetail:
+                        x-internal: true
                         type: string
                         description: "Internal secret detail, not public"
-                        x-internal: true
               example:
                 id: 1
                 name: "Public Item"

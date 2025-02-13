@@ -8,10 +8,10 @@ servers:
 paths:
   # internal-endpoint.yml
   /internal-endpoint:
-    $ref: './contracts/internal-endpoint.yml#/paths/internal-endpoint'
+    $ref: './contracts/internal-endpoint.yml#/paths/~1internal-endpoint'
   # mixed-endpoint.yml
   /mixed-endpoint:
-    $ref: './contracts/mixed-endpoint.yml#/paths/mixed-endpoint'
+    $ref: './contracts/mixed-endpoint.yml#/paths/~1mixed-endpoint'
   # public-endpoint.yml
   /public-endpoint:
-    $ref: './contracts/public-endpoint.yml#/paths/public-endpoint'
+    $ref: './contracts/public-endpoint.yml#/paths/~1public-endpoint'

@@ -7,7 +7,7 @@ servers:
   - url: https://api.example.com
 
 paths:
-  mixed-endpoint:
+  /mixed-endpoint:
     put:
       summary: "Update mixed data with public and internal fields"
       operationId: updateMixedData
@@ -22,9 +22,9 @@ paths:
                   type: string
                   description: "A public field to be updated"
                 hiddenField:
+                  x-internal: true
                   type: string
                   description: "A field that is internal"
-                  x-internal: true
                 nestedObject:
                   type: object
                   properties:
@@ -32,9 +32,9 @@ paths:
                       type: string
                       description: "Public nested field"
                     nestedInternal:
+                      x-internal: true
                       type: string
                       description: "Internal nested field"
-                      x-internal: true
               required:
                 - updateField
       responses:
@@ -48,16 +48,16 @@ paths:
                   updateField:
                     type: string
                   hiddenField:
-                    type: string
                     x-internal: true
+                    type: string
                   nestedObject:
                     type: object
                     properties:
                       nestedPublic:
                         type: string
                       nestedInternal:
-                        type: string
                         x-internal: true
+                        type: string
               example:
                 updateField: "Updated value"
                 hiddenField: "This should be removed"
