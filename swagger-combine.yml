@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.0.0
+  description: Example API
+servers:
+  - url: https://api.example.com
+paths:
+  # internal-endpoint.yml
+  /internal-endpoint:
+    $ref: './contracts/internal-endpoint.yml#/paths/~1internal-endpoint'
+  # mixed-endpoint.yml
+  /mixed-endpoint:
+    $ref: './contracts/mixed-endpoint.yml#/paths/~1mixed-endpoint'
+  # public-endpoint.yml
+  /public-endpoint:
+    $ref: './contracts/public-endpoint.yml#/paths/~1public-endpoint'

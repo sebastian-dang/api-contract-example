@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Sample API with Mixed Internal and Public Endpoints
+  version: "1.0.0"
+  description: Example public API
+servers:
+  - url: https://api.example.com
+
+paths:
+  /mixed-endpoint:
+    put:
+      summary: "Update mixed data with public and internal fields"
+      operationId: updateMixedData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                updateField:
+                  type: string
+                  description: "A public field to be updated"
+                hiddenField:
+                  x-internal: true
+                  type: string
+                  description: "A field that is internal"
+                nestedObject:
+                  type: object
+                  properties:
+                    nestedPublic:
+                      type: string
+                      description: "Public nested field"
+                    nestedInternal:
+                      x-internal: true
+                      type: string
+                      description: "Internal nested field"
+              required:
+                - updateField
+      responses:
+        "200":
+          description: "Update successful"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  updateField:
+                    type: string
+                  hiddenField:
+                    x-internal: true
+                    type: string
+                  nestedObject:
+                    type: object
+                    properties:
+                      nestedPublic:
+                        type: string
+                      nestedInternal:
+                        x-internal: true
+                        type: string
+              example:
+                updateField: "Updated value"
+                hiddenField: "This should be removed"
+                nestedObject:
+                  nestedPublic: "Public nested value"
+                  nestedInternal: "This nested internal value should be removed"

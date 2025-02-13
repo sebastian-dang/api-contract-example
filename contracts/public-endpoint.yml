@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: Sample API with Mixed Internal and Public Endpoints
+  version: "1.0.0"
+  description: Example public API
+servers:
+  - url: https://api.example.com
+
+paths:
+  /public-endpoint:
+    get:
+      summary: "Retrieve public data"
+      operationId: getPublicData
+      responses:
+        "200":
+          description: "Successful response with public data"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: "Public identifier"
+                  name:
+                    type: string
+                    description: "Name of the item"
+                  internalNote:
+                    x-internal: true
+                    type: string
+                    description: "An internal note that should be removed"
+                  details:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        description: "Detailed description of the item"
+                      secretDetail:
+                        x-internal: true
+                        type: string
+                        description: "Internal secret detail, not public"
+              example:
+                id: 1
+                name: "Public Item"
+                internalNote: "This note should be filtered out"
+                details:
+                  description: "This is a public item description."
+                  secretDetail: "This secret should be removed"

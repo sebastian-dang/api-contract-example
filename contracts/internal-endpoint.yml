@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: Sample API with Mixed Internal and Public Endpoints
+  version: "1.0.0"
+  description: Example public API
+servers:
+  - url: https://api.example.com
+
+paths:
+  /internal-endpoint:
+    post:
+      x-internal: true
+      summary: "Create sensitive data (internal)"
+      operationId: createSensitiveData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sensitiveField:
+                  x-internal: true
+                  type: string
+                  description: "Sensitive field; internal use only"
+                publicField:
+                  type: string
+                  description: "Field visible to the public"
+              required:
+                - sensitiveField
+                - publicField
+      responses:
+        "201":
+          description: "Sensitive data created successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      publicField:
+                        type: string
+                      sensitiveField:
+                        x-internal: true
+                        type: string
+              example:
+                status: "created"
+                data:
+                  id: 10
+                  publicField: "Visible Data"
+                  sensitiveField: "This should be removed"

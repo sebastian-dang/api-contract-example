@@ -1,0 +1,7 @@
+apis:
+  internal@latest:
+    root: ./swagger.yml
+  external@latest:
+    root: ./swagger.yml
+    decorators:
+      remove-x-internal: on
