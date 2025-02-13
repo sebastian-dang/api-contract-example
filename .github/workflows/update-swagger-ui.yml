@@ -51,4 +51,4 @@ jobs:
             [1]: https://github.com/swagger-api/swagger-ui
             [2]: https://github.com/peter-evans/create-pull-request
           labels: dependencies, automated pr
-          branch: swagger-ui-updates
+          branch: automated-update-swagger-ui
