@@ -8,8 +8,8 @@ servers:
 paths:
   /internal-endpoint:
     post:
-      summary: Create sensitive data (internal)
       x-internal: true
+      summary: Create sensitive data (internal)
       operationId: createSensitiveData
       requestBody:
         required: true
@@ -19,9 +19,9 @@ paths:
               type: object
               properties:
                 sensitiveField:
+                  x-internal: true
                   type: string
                   description: Sensitive field; internal use only
-                  x-internal: true
                 publicField:
                   type: string
                   description: Field visible to the public
@@ -46,8 +46,8 @@ paths:
                       publicField:
                         type: string
                       sensitiveField:
-                        type: string
                         x-internal: true
+                        type: string
               example:
                 status: created
                 data:
@@ -69,9 +69,9 @@ paths:
                   type: string
                   description: A public field to be updated
                 hiddenField:
+                  x-internal: true
                   type: string
                   description: A field that is internal
-                  x-internal: true
                 nestedObject:
                   type: object
                   properties:
@@ -79,9 +79,9 @@ paths:
                       type: string
                       description: Public nested field
                     nestedInternal:
+                      x-internal: true
                       type: string
                       description: Internal nested field
-                      x-internal: true
               required:
                 - updateField
       responses:
@@ -95,16 +95,16 @@ paths:
                   updateField:
                     type: string
                   hiddenField:
-                    type: string
                     x-internal: true
+                    type: string
                   nestedObject:
                     type: object
                     properties:
                       nestedPublic:
                         type: string
                       nestedInternal:
-                        type: string
                         x-internal: true
+                        type: string
               example:
                 updateField: Updated value
                 hiddenField: This should be removed
@@ -130,9 +130,9 @@ paths:
                     type: string
                     description: Name of the item
                   internalNote:
+                    x-internal: true
                     type: string
                     description: An internal note that should be removed
-                    x-internal: true
                   details:
                     type: object
                     properties:
@@ -140,9 +140,9 @@ paths:
                         type: string
                         description: Detailed description of the item
                       secretDetail:
+                        x-internal: true
                         type: string
                         description: Internal secret detail, not public
-                        x-internal: true
               example:
                 id: 1
                 name: Public Item
