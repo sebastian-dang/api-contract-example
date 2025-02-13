@@ -6,8 +6,12 @@ info:
 servers:
   - url: https://api.followupboss.com
 paths:
-  # events.yml
-  /v1/events:
-    $ref: './contracts/events.yml#/paths/~1v1~1events'
-  /v1/events/{id}:
-    $ref: './contracts/events.yml#/paths/~1v1~1events~1{id}'
+  # internal-endpoint.yml
+  /internal-endpoint:
+    $ref: './contracts/internal-endpoint.yml#/paths/internal-endpoint'
+  # mixed-endpoint.yml
+  /mixed-endpoint:
+    $ref: './contracts/mixed-endpoint.yml#/paths/mixed-endpoint'
+  # public-endpoint.yml
+  /public-endpoint:
+    $ref: './contracts/public-endpoint.yml#/paths/public-endpoint'

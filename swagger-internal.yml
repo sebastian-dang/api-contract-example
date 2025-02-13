@@ -150,3 +150,4 @@ paths:
                 details:
                   description: This is a public item description.
                   secretDetail: This secret should be removed
+components: {}

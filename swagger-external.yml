@@ -6,54 +6,6 @@ info:
 servers:
   - url: https://api.followupboss.com
 paths:
-  /internal-endpoint:
-    post:
-      summary: Create sensitive data (internal)
-      x-internal: true
-      operationId: createSensitiveData
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                sensitiveField:
-                  type: string
-                  description: Sensitive field; internal use only
-                  x-internal: true
-                publicField:
-                  type: string
-                  description: Field visible to the public
-              required:
-                - sensitiveField
-                - publicField
-      responses:
-        '201':
-          description: Sensitive data created successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                  data:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                      publicField:
-                        type: string
-                      sensitiveField:
-                        type: string
-                        x-internal: true
-              example:
-                status: created
-                data:
-                  id: 10
-                  publicField: Visible Data
-                  sensitiveField: This should be removed
   /mixed-endpoint:
     put:
       summary: Update mixed data with public and internal fields
@@ -68,20 +20,12 @@ paths:
                 updateField:
                   type: string
                   description: A public field to be updated
-                hiddenField:
-                  type: string
-                  description: A field that is internal
-                  x-internal: true
                 nestedObject:
                   type: object
                   properties:
                     nestedPublic:
                       type: string
                       description: Public nested field
-                    nestedInternal:
-                      type: string
-                      description: Internal nested field
-                      x-internal: true
               required:
                 - updateField
       responses:
@@ -94,17 +38,11 @@ paths:
                 properties:
                   updateField:
                     type: string
-                  hiddenField:
-                    type: string
-                    x-internal: true
                   nestedObject:
                     type: object
                     properties:
                       nestedPublic:
                         type: string
-                      nestedInternal:
-                        type: string
-                        x-internal: true
               example:
                 updateField: Updated value
                 hiddenField: This should be removed
@@ -129,20 +67,12 @@ paths:
                   name:
                     type: string
                     description: Name of the item
-                  internalNote:
-                    type: string
-                    description: An internal note that should be removed
-                    x-internal: true
                   details:
                     type: object
                     properties:
                       description:
                         type: string
                         description: Detailed description of the item
-                      secretDetail:
-                        type: string
-                        description: Internal secret detail, not public
-                        x-internal: true
               example:
                 id: 1
                 name: Public Item
@@ -150,3 +80,4 @@ paths:
                 details:
                   description: This is a public item description.
                   secretDetail: This secret should be removed
+components: {}

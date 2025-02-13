@@ -1,4 +1,4 @@
-name: Combine Swagger and Auto Merge
+name: Publish Swagger and Auto Merge
 on:
   workflow_dispatch:
   push:
@@ -23,6 +23,18 @@ jobs:
       - name: Combine Swagger YAML Files
         run: |
           swagger-combine swagger-combine.yml -o swagger.yml
+
+      - name: Install Redocly
+        run: |
+          npm install -g @redocly/cli
+
+      - name: Bundle internal
+        run: |
+          redocly bundle internal@latest --output swagger-internal.yml
+
+      - name: Bundle external
+        run: |
+          redocly bundle external@latest --output swagger-external.yml
 
       - name: Create Pull Request
         id: create_pr
