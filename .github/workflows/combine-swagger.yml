@@ -30,7 +30,6 @@ jobs:
 
       - name: Bundle the swagger.yml
         run: |
-          swagger-cli bundle swagger.yml --type openapi --outfile swagger.yml --rmdir --ext 'x-internal'
           redocly bundle external@latest --output swagger-external.yaml
           redocly bundle internal@latest --output swagger-internal.yaml
 
