@@ -24,12 +24,15 @@ jobs:
         run: |
           swagger-combine swagger-combine.yml -o swagger.yml
 
-      - name: Remove internal fields in Swagger
+      - name: Install Redocly
         run: |
-          # Install swagger-cli if not present
-          npm install -g swagger-cli
-          # Bundle the OpenAPI spec and remove any fields containing 'x-internal'
+          npm install -g @redocly/cli
+
+      - name: Bundle the swagger.yml
+        run: |
           swagger-cli bundle swagger.yml --type openapi --outfile swagger.yml --rmdir --ext 'x-internal'
+          redocly bundle external@latest --output swagger-external.yaml
+          redocly bundle internal@latest --output swagger-internal.yaml
 
       - name: Create Pull Request
         id: create_pr
