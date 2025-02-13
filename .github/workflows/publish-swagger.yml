@@ -30,11 +30,11 @@ jobs:
 
       - name: Bundle internal
         run: |
-          redocly bundle internal@latest --output swagger-internal.yml
+          redocly bundle internal@latest --output internal/swagger.yml
 
       - name: Bundle external
         run: |
-          redocly bundle external@latest --output swagger-external.yml
+          redocly bundle external@latest --output swagger.yml
 
       - name: Create Pull Request
         id: create_pr
