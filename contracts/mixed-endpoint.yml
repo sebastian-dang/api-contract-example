@@ -7,7 +7,7 @@ servers:
   - url: https://api.example.com
 
 paths:
-  /mixed-endpoint:
+  mixed-endpoint:
     put:
       summary: "Update mixed data with public and internal fields"
       operationId: updateMixedData

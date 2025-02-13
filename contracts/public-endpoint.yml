@@ -7,7 +7,7 @@ servers:
   - url: https://api.example.com
 
 paths:
-  /public-endpoint:
+  public-endpoint:
     get:
       summary: "Retrieve public data"
       operationId: getPublicData

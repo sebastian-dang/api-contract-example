@@ -7,7 +7,7 @@ servers:
   - url: https://api.example.com
 
 paths:
-  /internal-endpoint:
+  internal-endpoint:
     post:
       summary: "Create sensitive data (internal)"
       x-internal: true
