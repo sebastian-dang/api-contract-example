@@ -136,6 +136,7 @@ paths:
                           format: date-time
                           example: "2014-05-05T19:38:27Z"
                         personId:
+                          x-internal: true
                           type: integer
                           format: int32
                           example: 12264

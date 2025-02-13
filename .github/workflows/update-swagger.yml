@@ -5,6 +5,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  removeInternal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove internal fields in Swagger
+        run: |
+          # Install swagger-cli if not present
+          npm install -g swagger-cli
+          # Bundle the OpenAPI spec and remove any fields containing 'x-internal'
+          swagger-cli bundle swagger-internal.yml --type openapi --outfile swagger-external.yml --rmdir --ext 'x-internal'
   updateSwagger:
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +30,7 @@ jobs:
         if: steps.swagger-ui.outputs.current_tag != steps.swagger-ui.outputs.release_tag
         env:
           RELEASE_TAG: ${{ steps.swagger-ui.outputs.release_tag }}
-          SWAGGER_YAML: "swagger.yml"
+          SWAGGER_YAML: "swagger-external.yml"
         run: |
           # Delete the dist directory and index.html
           rm -fr dist index.html
