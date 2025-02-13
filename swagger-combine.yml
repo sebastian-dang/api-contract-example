@@ -6,12 +6,12 @@ info:
 servers:
   - url: https://api.followupboss.com
 paths:
-  # public-endpoint.yml
-  /public-endpoint:
-    $ref: './contracts/public-endpoint.yml#/paths/public-endpoint'
   # internal-endpoint.yml
   /internal-endpoint:
     $ref: './contracts/internal-endpoint.yml#/paths/internal-endpoint'
   # mixed-endpoint.yml
   /mixed-endpoint:
     $ref: './contracts/mixed-endpoint.yml#/paths/mixed-endpoint'
+  # public-endpoint.yml
+  /public-endpoint:
+    $ref: './contracts/public-endpoint.yml#/paths/public-endpoint'
